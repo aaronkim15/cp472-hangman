@@ -11,3 +11,16 @@ gladiator
 matrix
 avatar
 jaws
+
+Countries:
+canada
+usa
+korea
+japan
+china
+
+Food:
+pasta
+pizza
+hamburger
+steak
