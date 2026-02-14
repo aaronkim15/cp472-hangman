@@ -19,13 +19,13 @@ def main():
                 continue
             
             if word.endswith(":"):
-                current_category = word[:-1]
-                categories[word[:-1]] = []
+                current_category = word[:-1] # hold current category
+                categories[word[:-1]] = [] # set the current category as a key
             else:
-                categories[current_category].append(word.lower())
+                categories[current_category].append(word.lower()) # add all the words after the category
             
             
-    while True:  # play again loop
+    while True:  # play again
         guessed_set = set()    # used for duplicate checking
         guessed_list = []      # used to display letters in the order guessed
         wrong_guesses = 0
@@ -34,13 +34,13 @@ def main():
         print("Welcome to the Hangman Game!")
         print("Select a category:")
 
-        menu = {}
+        menu = {} 
         # display the categories with numbered order
-        for index, category in enumerate(categories, start=1):
-            print(f"{index}. {category}")
-            menu[index] = category
+        for index, category in enumerate(categories, start=1): # iterable dictionary with a counter index
+            print(f"{index}. {category}") # displays types of categories
+            menu[index] = category # stores category options onto menu set
 
-        while True:
+        while True: # loop for asking user input, and checking for invalid options
             try:
                 choice = int(input("Enter the number of your category choice: "))
                 if choice not in menu:
@@ -51,7 +51,8 @@ def main():
                 break
             except ValueError:
                 print("Invalid input! Please enter a valid number")
-
+                
+        #randomly select a word from the chosen category
         word = random.choice(categories[selected_category])
 
         print("You selected '" + selected_category + "'. The word is " + str(len(word)) + " letters long.")
